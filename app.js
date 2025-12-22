@@ -87,4 +87,11 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log('Server: http://localhost:3000'));
+// Ganti bagian app.listen kamu menjadi seperti ini agar fleksibel
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+// TAMBAHKAN INI UNTUK VERCEL
+module.exports = app;
