@@ -52,29 +52,25 @@ Website portofolio modern, responsif, dan interaktif yang dibangun menggunakan *
 ├── app.js                  # Entry point Express server
 └── package.json
 
-🏁 Memulai
-Prasyarat
-Pastikan Anda sudah menginstal Node.js di perangkat Anda.
+## 🏁 Memulai
+ **Prasyarat
+** Pastikan Anda sudah menginstal Node.js di perangkat Anda.
 
-Instalasi
-Clone repositori ini:
+## Instalasi
+** Clone repositori ini:
 
-Bash
+## Bash
+** git clone [https://github.com/username/portfolio-atha.git](https://github.com/username/portfolio-atha.git) Masuk ke direktori proyek:
 
-git clone [https://github.com/username/portfolio-atha.git](https://github.com/username/portfolio-atha.git)
-Masuk ke direktori proyek:
+## Bash
+** cd portfolio-atha
+** Instal dependensi:
 
-Bash
+## Bash
 
-cd portfolio-atha
-Instal dependensi:
+## npm install
+** Jalankan aplikasi:
 
-Bash
-
-npm install
-Jalankan aplikasi:
-
-Bash
-
-npm start
-Buka di browser: http://localhost:3000
+## Bash
+** npm start
+** Buka di browser: http://localhost:3000
