@@ -87,11 +87,13 @@ app.get('/', (req, res) => {
     });
 });
 
-// Ganti bagian app.listen kamu menjadi seperti ini agar fleksibel
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Ganti app.listen yang lama dengan ini
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+    });
+}
 
-// TAMBAHKAN INI UNTUK VERCEL
-module.exports = app;
+// KHUSUS ES MODULES (import/export), gunakan export default untuk Vercel
+export default app;
