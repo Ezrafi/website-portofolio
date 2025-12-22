@@ -1,0 +1,45 @@
+.tech-stack-container {
+    padding: 20px 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tech-swiper {
+    width: 100%;
+    /* Memastikan slider tidak memanjang ke bawah */
+    height: auto; 
+}
+
+/* KUNCI UTAMA: Agar slide tidak melebar seukuran layar */
+.tech-swiper .swiper-slide {
+    width: auto ;
+    display: flex;
+    padding: 5px; /* Memberi sedikit jarak antar slide */
+    transition-timing-function: linear ;
+    margin: 0 auto;
+}
+
+.tech-item-slider {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Jangan gunakan width: 100% di sini */
+    transition: 0.3s;
+}
+
+.tech-icon-box {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.tech-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap; /* Mencegah teks turun ke bawah */
+}

@@ -1,0 +1,46 @@
+/* Konfigurasi Warna Dasar */
+:root {
+    --bg-main: #F9F6EE;
+    --bg-secondary: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-color: #22c55e; /* Hijau Let's Talk */
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+}
+
+/* Warna saat Dark Mode Aktif */
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+}
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus saat ganti tema */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Class pembantu untuk section agar konsisten */
+.common-section {
+    padding: 100px 10%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+}

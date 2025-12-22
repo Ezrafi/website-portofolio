@@ -1,0 +1,162 @@
+/* Hero Section Main */
+.hero-section {
+    padding: 120px 10%; /* Tambah sedikit padding atas agar tidak terlalu dekat navbar */
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-main);
+    transition: background-color 0.3s ease;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 60px; /* Jarak antara foto dan teks sedikit diperlebar */
+    align-items: center; 
+    max-width: 1100px;
+}
+
+/* Styling Foto Profile */
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 24px; /* Sudut lebih melengkung agar modern */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Bayangan lebih natural */
+    border: 4px solid var(--card-bg); /* Frame tipis di sekitar foto */
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02); /* Efek zoom sangat tipis saat di-hover */
+}
+
+/* Styling Teks (Inter Font Integration) */
+.hero-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem; /* Ukuran diperbesar sedikit */
+    font-weight: 800; /* Extra Bold */
+    letter-spacing: -0.03em; /* Karakter khas Inter: dirapatkan sedikit */
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-color); /* Gunakan warna hijau/aksen untuk tagline */
+    margin-top: 15px;
+    letter-spacing: -0.01em;
+}
+
+.description {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary); /* Menggunakan warna secondary agar ada hirarki visual */
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.8; /* Ruang baca yang luas */
+    margin: 25px 0;
+    max-width: 600px;
+}
+
+/* Info & Status */
+.info-list {
+    margin-bottom: 35px;
+    font-family: 'Inter', sans-serif;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.status-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+/* Animasi berkedip pada status dot */
+.status-dot::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-talk, .btn-cv {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-talk {
+    background-color: #22c55e;
+    color: white;
+}
+
+.btn-cv {
+    background-color: var(--text-primary); /* Mengikuti tema */
+    color: var(--bg-main);
+}
+
+.btn-talk:hover, .btn-cv:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: Mobile Mode */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 5%;
+    }
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-image { order: -1; }
+    .hero-image img {
+        max-width: 250px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .description {
+        margin: 20px auto;
+    }
+    .info-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-buttons { justify-content: center; }
+}

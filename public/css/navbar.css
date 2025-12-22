@@ -1,0 +1,156 @@
+/* Definisikan variabel di global.css atau di sini */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1f2937;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* Warna saat Dark Mode aktif */
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --nav-bg: rgba(15, 23, 42, 0.8);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    height: 80px; /* Atur tinggi navbar agar pas */
+    display: flex;
+    align-items: center; /* Teks Navigasi akan berada tepat di tengah tinggi navbar */
+}
+
+.logo-box {
+    background: #000;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Container utama untuk link */
+.nav-links {
+    display: flex;
+    gap: 32px; /* Jarak antar menu lebih lega */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* Styling setiap item link */
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.7; /* Sedikit redup agar tidak menusuk mata */
+    transition: all 0.3s ease;
+    position: relative; /* Untuk dasar animasi garis */
+}
+
+/* Efek saat kursor mendekat (Hover) */
+.nav-links li a:hover {
+    opacity: 1;
+    color: #22c55e; /* Berubah jadi hijau saat disentuh */
+}
+
+/* Animasi Garis Bawah yang muncul dari tengah */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 50%;
+    background-color: #22c55e;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Garis memanjang penuh saat hover */
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Jarak antar tombol */
+}
+
+/* Base style untuk kedua tombol (Talk & CV) */
+.btn-talk, .btn-cv {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Teks tidak akan turun ke bawah */
+}
+
+/* Tombol Let's Talk (Warna Hijau) */
+.btn-talk {
+    background-color: #22c55e;
+    color: #ffffff !important; /* Paksa warna putih agar kontras */
+}
+
+/* Tombol CV (Mengikuti Tema) */
+.btn-cv {
+    background-color: var(--text-color);
+}
+
+/* Efek Hover untuk kedua tombol */
+.btn-talk:hover, .btn-cv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+}
+
+/* Tombol Ganti Tema */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent-color);
+}
+
+/* Responsive: Hilangkan teks di HP agar tidak penuh, sisa ikon saja */
+@media (max-width: 600px) {
+    .btn-talk span, .btn-cv span {
+        display: none;
+    }
+    .btn-talk, .btn-cv {
+        padding: 8px 12px;
+    }
+}

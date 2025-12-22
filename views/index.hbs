@@ -1,0 +1,32 @@
+{{> navbar }}
+
+<main>
+    <section id="hero">
+        {{> hero }}
+</section>
+
+    <section id="tech-stack" class="common-section">
+    <h2 class="section-title">Tech Stack - Tools I Use</h2>
+    {{> tech-stack }}
+</section>
+    
+    <section id="experience" class="common-section">
+    <h2>Work Experiences:</h2>
+    <div class="exp-list">
+        {{#each experiences}}
+            {{> experience_card}}
+        {{/each}}
+    </div>
+</section>
+
+    <section id="projects" class="common-section">
+        <h2 class="section-title">My Projects</h2>
+        
+        <div class="project-grid">
+            {{#each projects}}
+                {{> project_card }}
+            {{/each}}
+        </div>
+</section>
+{{> footer }}
+</main>

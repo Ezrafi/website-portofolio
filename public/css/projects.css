@@ -1,0 +1,115 @@
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    /* Hapus padding dari sini agar gambar bisa nempel ke tepi */
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Penting: agar sudut gambar ikut melengkung */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek Hover */
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* Container Gambar (Seperti di Screenshot) */
+.project-image-box {
+    width: 100%;
+    height: 220px; /* Sesuaikan tinggi gambar */
+    background-color: #f3f4f6; /* Warna placeholder */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar tidak akan gepeng */
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image-box img {
+    transform: scale(1.05); /* Efek zoom halus saat kartu di-hover */
+}
+
+/* Wrapper Konten (Pindahkan padding 24px ke sini) */
+.project-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Container untuk banyak Badge (Tags) */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.project-tech-badge {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+.project-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.project-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Footer Kartu untuk Link */
+.project-footer {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-project-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.btn-project-link i {
+    font-size: 1rem;
+}
+
+.btn-project-link:hover {
+    color: var(--accent-color);
+}
+
+/* Grid System */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}

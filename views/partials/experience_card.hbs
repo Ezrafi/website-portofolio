@@ -1,0 +1,28 @@
+<div class="exp-card">
+    <div class="exp-header">
+        <div class="exp-left-group">
+            <div class="exp-logo-container">
+                <img src="{{this.logo}}" alt="{{this.company}}" class="exp-logo">
+            </div>
+            <div class="exp-title-box">
+                <h3 class="exp-role">{{this.role}}</h3>
+                <p class="exp-company">{{this.company}}</p>
+            </div>
+        </div>
+        <div class="exp-right-group">
+            <span class="exp-date">{{this.date}}</span>
+        </div>
+    </div>
+
+    <ul class="exp-points">
+        {{#each this.points}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+
+    <div class="exp-tech-stack">
+        {{#each this.tech}}
+            <span class="exp-tech-badge">{{this}}</span>
+        {{/each}}
+    </div>
+</div>
