@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
         }
     ];
 
-  const skills = [
+const skills = [
         { name: "JavaScript", icon: "fab fa-js", color: "#f7df1e" },
         { name: "Node.js", icon: "fab fa-node-js", color: "#339933" },
         { name: "React", icon: "fab fa-react", color: "#61dafb" },
