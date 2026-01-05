@@ -8,20 +8,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const swiper = new Swiper('.tech-swiper', {
+const techSwiper = new Swiper('.tech-swiper', {
     loop: true,
-    spaceBetween: 5,
     slidesPerView: 'auto',
-    speed: 5000,
+    spaceBetween: 20,
+    speed: 5000, // Semakin besar angka, semakin lambat/smooth
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
     },
-    freeMode: {
-        enabled: true,
-        sticky: false,
-    },
-    // Tambahkan ini untuk mengatasi error loop
-    loopedSlides: 8, // Sesuaikan dengan jumlah data di app.js
-    loopAdditionalSlides: 8, 
+    freeMode: true
 });

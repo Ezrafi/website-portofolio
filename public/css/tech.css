@@ -43,3 +43,6 @@
     color: var(--text-primary);
     white-space: nowrap; /* Mencegah teks turun ke bawah */
 }
+.tech-swiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
