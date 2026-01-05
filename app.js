@@ -6,21 +6,24 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
+// Konfigurasi Handlebars
 app.engine('hbs', engine({
     extname: 'hbs',
     defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views', 'layouts'),
-    partialsDir: path.join(__dirname, 'views', 'partials')
+    layoutsDir: path.join(__dirname, 'views/layouts'),
+    partialsDir: path.join(__dirname, 'views/partials'),
 }));
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Sangat Penting: Agar Express bisa membaca folder public/css
+// Sajikan file statis dari folder public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware untuk menangani favicon agar tidak 404 di log
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 app.get('/', (req, res) => {
-    // 1. Data Projects
     const projects = [
         {
             title: "Sistem Monitoring Hidroponik Berbasis Blynk dan ESP32",
@@ -38,7 +41,6 @@ app.get('/', (req, res) => {
         }
     ];
 
-    // 2. Data Experiences
     const experiences = [
         {
             role: "Research and Development assistant",
@@ -61,41 +63,31 @@ app.get('/', (req, res) => {
             date: "June 2024 - July 2024",
             points: [
                 "Developed a Year-over-Year Revenue Comparison dashboard to identify revenue trends and patterns.",
-                "Created an interactive Geo Map in Looker Studio to visualize total profit by province, aiding in regional performance analysis. Built a Top 10 Transactions by Province dashboard to highlight high-performing regions and focus business strategies.",
-                "Designed a Top 5 Branches with Highest Ratings but Lowest Transaction Ratings report to pinpoint areas for service improvement.",
-                "Built a Top 10 Transactions by Province dashboard to highlight high-performing regions and focus business strategies."
+                "Created an interactive Geo Map in Looker Studio to visualize total profit by province, aiding in regional performance analysis.",
+                "Designed a Top 5 Branches with Highest Ratings but Lowest Transaction Ratings report to pinpoint areas for service improvement."
             ],
-            tech: ["Looker Studio", "BigQuery", "MySQL", "MongoDB",]
+            tech: ["Looker Studio", "BigQuery", "MySQL", "MongoDB"]
         }
     ];
 
-const skills = [
-    { name: "JavaScript", icon: "fab fa-js", color: "#f7df1e" },
-    { name: "Node.js", icon: "fab fa-node-js", color: "#339933" },
-    { name: "React", icon: "fab fa-react", color: "#61dafb" },
-    { name: "Next.js", icon: "fab fa-react", color: "#000000" },
-    { name: "PostgreSQL", icon: "fas fa-database", color: "#336791" },
-    { name: "MySQL", icon: "fas fa-database", color: "#4479a1" },
-    { name: "Tailwind", icon: "fab fa-css3-alt", color: "#06b6d4" },
-    { name: "Arduino IDE", icon: "fas fa-microchip", color: "#00979d" },
-];
+    const skills = [
+        { name: "JavaScript", icon: "fab fa-js", color: "#f7df1e" },
+        { name: "Node.js", icon: "fab fa-node-js", color: "#339933" },
+        { name: "React", icon: "fab fa-react", color: "#61dafb" },
+        { name: "Next.js", icon: "fab fa-react", color: "#000000" },
+        { name: "PostgreSQL", icon: "fas fa-database", color: "#336791" },
+        { name: "MySQL", icon: "fas fa-database", color: "#4479a1" },
+        { name: "Tailwind", icon: "fab fa-css3-alt", color: "#06b6d4" },
+        { name: "Arduino IDE", icon: "fas fa-microchip", color: "#00979d" },
+    ];
 
-
-    // 3. Kirim SEMUA data dalam SATU pemanggilan render
-    res.render('index', { 
-        projects: projects, 
-        experiences: experiences, 
-        skills: skills
-    });
+    res.render('index', { projects, experiences, skills });
 });
 
-// Ganti app.listen yang lama dengan ini
+// Listener untuk lokal
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
-    });
+    app.listen(PORT, () => console.log(`Server: http://localhost:${PORT}`));
 }
 
-// KHUSUS ES MODULES (import/export), gunakan export default untuk Vercel
 export default app;
