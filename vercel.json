@@ -7,14 +7,9 @@
     }
   ],
   "routes": [
-    { "src": "/css/(.*)", "dest": "/public/css/$1" },
-    { "src": "/js/(.*)", "dest": "/public/js/$1" },
-    { "src": "/img/(.*)", "dest": "/public/img/$1" },
-    { "src": "/(.*)", "dest": "app.js" }
-  ],
-  "functions": {
-    "app.js": {
-      "includeFiles": "views/**"
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
     }
-  }
+  ]
 }
