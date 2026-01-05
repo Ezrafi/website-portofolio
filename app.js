@@ -80,8 +80,6 @@ const skills = [
     { name: "Arduino IDE", icon: "fas fa-microchip", color: "#00979d" },
 ];
 
-// Mencegah error 404 favicon di log
-app.get('/favicon.ico', (req, res) => res.status(204).end());
 
     // 3. Kirim SEMUA data dalam SATU pemanggilan render
     res.render('index', { 
