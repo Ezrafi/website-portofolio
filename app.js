@@ -19,8 +19,6 @@ app.set('views', path.join(__dirname, 'views'));
 // Sangat Penting: Agar Express bisa membaca folder public/css
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
-
 app.get('/', (req, res) => {
     // 1. Data Projects
     const projects = [
