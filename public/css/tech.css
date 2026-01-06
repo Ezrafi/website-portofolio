@@ -7,7 +7,10 @@
 .tech-swiper {
     width: 100%;
     /* Memastikan slider tidak memanjang ke bawah */
-    height: auto; 
+    height: auto;
+    box-sizing: border-box;
+    margin: 0 auto;
+
 }
 
 /* KUNCI UTAMA: Agar slide tidak melebar seukuran layar */

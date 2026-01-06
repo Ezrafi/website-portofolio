@@ -71,15 +71,15 @@ app.get('/', (req, res) => {
     ];
 
     const skills = [
-        { name: "JavaScript", icon: "fab fa-js", color: "#f7df1e" },
-        { name: "Node.js", icon: "fab fa-node-js", color: "#339933" },
-        { name: "React", icon: "fab fa-react", color: "#61dafb" },
-        { name: "Next.js", icon: "fab fa-react", color: "#000000" },
-        { name: "PostgreSQL", icon: "fas fa-database", color: "#336791" },
-        { name: "MySQL", icon: "fas fa-database", color: "#4479a1" },
-        { name: "Tailwind", icon: "fab fa-css3-alt", color: "#06b6d4" },
-        { name: "Arduino IDE", icon: "fas fa-microchip", color: "#00979d" },
-    ];
+    { name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", color: "#f7df1e" },
+    { name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", color: "#339933" },
+    { name: "React", logo: "https://skillicons.dev/icons?i=react", color: "#61dafb" },
+    { name: "Next.js", logo: "https://skillicons.dev/icons?i=nextjs", color: "#ffffff" },
+    { name: "MySQL", logo: "https://skillicons.dev/icons?i=mysql", color: "#4479a1" },
+    { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
+    { name: "PostgreSQL", logo: "https://skillicons.dev/icons?i=postgres", color: "#336791" },
+    { name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
+];
 
     res.render('index', { projects, experiences, skills });
 });
