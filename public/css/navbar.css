@@ -145,12 +145,47 @@
     border-color: var(--accent-color);
 }
 
-/* Responsive: Hilangkan teks di HP agar tidak penuh, sisa ikon saja */
-@media (max-width: 600px) {
-    .btn-talk span, .btn-cv span {
-        display: none;
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 5%; /* Perkecil padding samping agar logo tidak terhimpit */
+        height: 70px;
     }
+
+    /* Opsi A: Sembunyikan Nav Links di HP (Sangat disarankan) */
+    /* Karena menu ini yang biasanya memakan banyak tempat dan menabrak logo */
+    .nav-links {
+        display: none; 
+    }
+
+    .nav-right {
+        gap: 10px; /* Perkecil jarak antar elemen di kanan */
+    }
+
+    .logo-box {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    .nav-buttons {
+        gap: 8px;
+    }
+
+    /* Ukuran tombol di HP agar lebih compact */
     .btn-talk, .btn-cv {
-        padding: 8px 12px;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Tombol ganti tema diperkecil sedikit */
+    .theme-btn {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+/* Tambahan khusus untuk layar sangat kecil (di bawah 400px) */
+@media (max-width: 400px) {
+    .btn-cv {
+        display: none; /* Sembunyikan CV jika layar terlalu sempit, sisakan WA saja */
     }
 }
