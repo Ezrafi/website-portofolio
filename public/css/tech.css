@@ -15,7 +15,7 @@
 
 /* KUNCI UTAMA: Agar slide tidak melebar seukuran layar */
 .tech-swiper .swiper-slide {
-    width: auto ;
+    width: auto !important;
     display: flex;
     padding: 5px; /* Memberi sedikit jarak antar slide */
     transition-timing-function: linear ;

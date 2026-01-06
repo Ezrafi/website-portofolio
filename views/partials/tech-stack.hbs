@@ -1,23 +1,35 @@
 <div class="swiper tech-swiper">
     <div class="swiper-wrapper">
-        {{!-- Looping Utama --}}
+        {{!-- Looping 1 --}}
         {{#each skills}}
         <div class="swiper-slide">
             <div class="tech-item-slider" style="--brand-color: {{this.color}}">
                 <div class="tech-img-box">
-                    <img src="{{this.logo}}" alt="{{this.name}}">
+                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
                 </div>
                 <span class="tech-name">{{this.name}}</span>
             </div>
         </div>
         {{/each}}
 
-        {{!-- DUPLIKASI: Tambahkan loop kedua agar item melimpah --}}
+        {{!-- Looping 2 --}}
         {{#each skills}}
         <div class="swiper-slide">
             <div class="tech-item-slider" style="--brand-color: {{this.color}}">
                 <div class="tech-img-box">
-                    <img src="{{this.logo}}" alt="{{this.name}}">
+                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
+                </div>
+                <span class="tech-name">{{this.name}}</span>
+            </div>
+        </div>
+        {{/each}}
+
+        {{!-- Looping 3 --}}
+        {{#each skills}}
+        <div class="swiper-slide">
+            <div class="tech-item-slider" style="--brand-color: {{this.color}}">
+                <div class="tech-img-box">
+                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
                 </div>
                 <span class="tech-name">{{this.name}}</span>
             </div>

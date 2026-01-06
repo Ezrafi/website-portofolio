@@ -73,11 +73,14 @@ app.get('/', (req, res) => {
     const skills = [
     { name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", color: "#f7df1e" },
     { name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", color: "#339933" },
+    { name: "Express.js", logo: "https://skillicons.dev/icons?i=express", color: "#ffffff" },
+    { name: "MongoDB", logo: "https://skillicons.dev/icons?i=mongodb", color: "#47a248" },
     { name: "React", logo: "https://skillicons.dev/icons?i=react", color: "#61dafb" },
     { name: "Next.js", logo: "https://skillicons.dev/icons?i=nextjs", color: "#ffffff" },
     { name: "MySQL", logo: "https://skillicons.dev/icons?i=mysql", color: "#4479a1" },
-    { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
     { name: "PostgreSQL", logo: "https://skillicons.dev/icons?i=postgres", color: "#336791" },
+    { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
+    { name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", color: "#7952b3" },
     { name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
 ];
 

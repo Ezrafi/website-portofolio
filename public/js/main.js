@@ -23,22 +23,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const swiper = new Swiper(".tech-swiper", {
     loop: true,
     slidesPerView: 'auto',
-    spaceBetween: 20,
-    speed: 5000, // Kecepatan gerak otomatis
-    grabCursor: true, // Mengubah kursor jadi tangan saat hover
+    spaceBetween: 25, // Sedikit diperlebar agar tidak terlalu rapat
+    speed: 3000, // Kecepatan gerak (makin tinggi makin lambat & halus)
+    grabCursor: true,
     
-    loopedSlides: 10, // Sesuaikan dengan jumlah total skill asli kamu
+    loopedSlides: 22, // Setidaknya 2x jumlah skill asli
+    loopAdditionalSlides: 11,
 
-    // Fitur Drag Manual
-    freeMode: {
-        enabled: true,
-        momentum: false, // Mematikan momentum agar transisi marquee tidak kacau
-    },
+    // TAMBAHKAN INI:
+    watchSlidesProgress: true,
+    updateOnWindowResize: true,
+    observer: true, // Memantau perubahan pada elemen
+    observeParents: true, // Memantau perubahan pada parent element
     
     autoplay: {
         delay: 0,
-        disableOnInteraction: false, // PENTING: lanjut jalan setelah drag
+        disableOnInteraction: false,
         pauseOnMouseEnter: false,
-        waitForTransition: false, // PENTING: paksa jalan meskipun transisi belum selesai
+        waitForTransition: false,
+    },
+    
+    freeMode: {
+        enabled: true,
+        momentum: false,
     },
 });
