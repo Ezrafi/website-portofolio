@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware untuk menangani favicon agar tidak 404 di log
-app.get('/favicon.ico', (req, res) => res.status(204).end());
+// app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.get('/', (req, res) => {
     const projects = [
