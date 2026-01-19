@@ -29,14 +29,16 @@ app.get('/', (req, res) => {
             title: "Sistem Monitoring Hidroponik Berbasis Blynk dan ESP32",
             tech: "Arduino IDE • C++, Blynk",
             desc: "A System Where you can monitor your hydroponic system using Blynk and ESP32.",
-            link: "#",
+            link: "https://github.com/Ezrafi",
+            github: "https://github.com/Ezrafi",
             image: "/img/iot.png"
         },
         {
             title: "Sistem Manajemen Gudang Berbasis Web",
             tech: "Bootstrap • PHP • MySQL, CodeIgniter, XAMPP",
             desc: "Management system for warehouse operations using PHP, MySQL, and CodeIgniter.",
-            link: "#",
+            link: "https://github.com/Ezrafi",
+            github: "https://github.com/Ezrafi/sistem-gudang",
             image: "/img/project1.png"
         }
     ];

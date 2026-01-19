@@ -147,45 +147,53 @@
 
 @media (max-width: 768px) {
     .navbar-container {
-        padding: 0 5%; /* Perkecil padding samping agar logo tidak terhimpit */
-        height: 70px;
+        padding: 0 4%; /* Sempitkan padding agar logo punya ruang */
+        height: 65px;  /* Navbar sedikit lebih ramping di mobile */
     }
 
-    /* Opsi A: Sembunyikan Nav Links di HP (Sangat disarankan) */
-    /* Karena menu ini yang biasanya memakan banyak tempat dan menabrak logo */
     .nav-links {
         display: none; 
     }
 
     .nav-right {
-        gap: 10px; /* Perkecil jarak antar elemen di kanan */
+        gap: 6px; /* Perkecil jarak antara tombol navigasi dan theme toggle */
     }
 
     .logo-box {
-        font-size: 1rem;
-        padding: 6px 10px;
+        font-size: 0.9rem; /* Perkecil logo sedikit */
+        padding: 5px 8px;
     }
 
     .nav-buttons {
-        gap: 8px;
+        gap: 6px; /* Jarak antar tombol diperkecil */
     }
 
-    /* Ukuran tombol di HP agar lebih compact */
+    /* Penyesuaian Tombol agar lebih mungil di iPhone */
     .btn-talk, .btn-cv {
-        padding: 8px 10px;
-        font-size: 0.8rem;
+        padding: 6px 10px; /* Padding lebih kecil */
+        font-size: 0.75rem; /* Font lebih kecil agar tidak makan tempat */
+        gap: 4px;          /* Jarak icon ke teks diperkecil */
+        border-radius: 6px; /* Border radius menyesuaikan ukuran */
     }
 
-    /* Tombol ganti tema diperkecil sedikit */
+    .btn-talk i, .btn-cv i {
+        font-size: 0.85rem; /* Ukuran icon ikut mengecil */
+    }
+
+    /* Menghilangkan teks jika layar benar-benar sempit (iPhone Mini/SE) */
+    @media (max-width: 380px) {
+        .btn-talk span, .btn-cv span {
+            display: none; /* Hanya tampilkan icon saja agar tidak overflow */
+        }
+        .btn-talk, .btn-cv {
+            padding: 8px 10px;
+        }
+    }
+
+    /* Tombol ganti tema */
     .theme-btn {
-        width: 34px;
-        height: 34px;
-    }
-}
-
-/* Tambahan khusus untuk layar sangat kecil (di bawah 400px) */
-@media (max-width: 400px) {
-    .btn-cv {
-        display: none; /* Sembunyikan CV jika layar terlalu sempit, sisakan WA saja */
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
     }
 }
