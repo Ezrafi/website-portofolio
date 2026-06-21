@@ -40,6 +40,14 @@ app.get('/', (req, res) => {
             link: "https://github.com/Ezrafi",
             github: "https://github.com/Ezrafi/sistem-gudang",
             image: "/img/project1.png"
+        },
+        {
+            title: "Website Educourse Hariesok.id",
+            tech: "Tailwind • React • MySQL, Javascript, Docker",
+            desc: "Educourse platform for managing online courses using React, Vite, and Tailwind CSS, with Zustand for state management and MySQL-based database design.",
+            link: "https://learnflix-lime.vercel.app/",
+            github: "https://github.com/Ezrafi",
+            image: "/img/project2.png"
         }
     ];
 
@@ -84,6 +92,7 @@ app.get('/', (req, res) => {
     { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
     { name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", color: "#7952b3" },
     { name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
+    { name: "Docker", logo: "https://skillicons.dev/icons?i=docker", color: "#2496ed" },
 ];
 
     res.render('index', { projects, experiences, skills });
