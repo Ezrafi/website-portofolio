@@ -1,39 +1,29 @@
-<div class="swiper tech-swiper">
-    <div class="swiper-wrapper">
-        {{!-- Looping 1 --}}
-        {{#each skills}}
-        <div class="swiper-slide">
-            <div class="tech-item-slider" style="--brand-color: {{this.color}}">
-                <div class="tech-img-box">
-                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
+<div class="tech-stack-container">
+    <div class="swiper tech-swiper">
+        <div class="swiper-wrapper">
+            {{!-- Single elegant loop structure --}}
+            {{#each skills}}
+            <div class="swiper-slide">
+                <div class="tech-item-slider" style="--brand-color: {{this.color}}">
+                    <div class="tech-img-box">
+                        <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
+                    </div>
+                    <span class="tech-name">{{this.name}}</span>
                 </div>
-                <span class="tech-name">{{this.name}}</span>
             </div>
-        </div>
-        {{/each}}
-
-        {{!-- Looping 2 --}}
-        {{#each skills}}
-        <div class="swiper-slide">
-            <div class="tech-item-slider" style="--brand-color: {{this.color}}">
-                <div class="tech-img-box">
-                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
+            {{/each}}
+            
+            {{!-- Duplicate once only if you have fewer than 10 total skills to ensure loop stability --}}
+            {{#each skills}}
+            <div class="swiper-slide">
+                <div class="tech-item-slider" style="--brand-color: {{this.color}}">
+                    <div class="tech-img-box">
+                        <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
+                    </div>
+                    <span class="tech-name">{{this.name}}</span>
                 </div>
-                <span class="tech-name">{{this.name}}</span>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
-
-        {{!-- Looping 3 --}}
-        {{#each skills}}
-        <div class="swiper-slide">
-            <div class="tech-item-slider" style="--brand-color: {{this.color}}">
-                <div class="tech-img-box">
-                    <img src="{{this.logo}}" alt="{{this.name}}" loading="lazy">
-                </div>
-                <span class="tech-name">{{this.name}}</span>
-            </div>
-        </div>
-        {{/each}}
     </div>
 </div>

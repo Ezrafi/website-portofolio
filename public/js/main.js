@@ -8,38 +8,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// const techSwiper = new Swiper('.tech-swiper', {
-//     loop: true,
-//     slidesPerView: 'auto',
-//     spaceBetween: 20,
-//     speed: 5000, // Semakin besar angka, semakin lambat/smooth
-//     autoplay: {
-//         delay: 0,
-//         disableOnInteraction: false,
-//     },
-//     freeMode: true
-// });
-
+// Modernized Marquee Config
 const swiper = new Swiper(".tech-swiper", {
     loop: true,
     slidesPerView: 'auto',
-    spaceBetween: 25, // Sedikit diperlebar agar tidak terlalu rapat
-    speed: 3000, // Kecepatan gerak (makin tinggi makin lambat & halus)
+    spaceBetween: 30, 
+    speed: 4000, // Slightly slowed down to make it look premium and readable
     grabCursor: true,
     
-    loopedSlides: 22, // Setidaknya 2x jumlah skill asli
-    loopAdditionalSlides: 11,
-
-    // TAMBAHKAN INI:
     watchSlidesProgress: true,
     updateOnWindowResize: true,
-    observer: true, // Memantau perubahan pada elemen
-    observeParents: true, // Memantau perubahan pada parent element
+    observer: true, 
+    observeParents: true, 
     
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
-        pauseOnMouseEnter: false,
+        pauseOnMouseEnter: true, // IMPORTANT: Freezes the scroll so users can enjoy your hover effects!
         waitForTransition: false,
     },
     
