@@ -44,3 +44,9 @@ body {
 h1, h2, h3 {
     color: var(--text-primary);
 }
+
+@media (max-width: 768px) {
+    .common-section {
+        padding: 60px 5%;
+    }
+}

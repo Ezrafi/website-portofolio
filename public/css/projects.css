@@ -106,10 +106,37 @@
     color: var(--accent-color);
 }
 
-/* Grid System */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .project-image-box {
+        height: 160px;
+    }
+
+    .project-content {
+        padding: 16px;
+        gap: 10px;
+    }
+
+    .project-title {
+        font-size: 1.15rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
+    }
+
+    .project-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .project-grid {
+        gap: 20px;
+    }
 }

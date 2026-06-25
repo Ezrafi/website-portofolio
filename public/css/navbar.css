@@ -165,7 +165,7 @@
     }
 
     .nav-buttons {
-        gap: 6px; /* Jarak antar tombol diperkecil */
+        gap: 12px;
     }
 
     /* Penyesuaian Tombol agar lebih mungil di iPhone */
@@ -190,10 +190,23 @@
         }
     }
 
-    /* Tombol ganti tema */
     .theme-btn {
         width: 32px;
         height: 32px;
         font-size: 0.85rem;
+        margin-left: 16px;
+        position: relative;
+    }
+
+    .theme-btn::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 20px;
+        width: 1px;
+        background: var(--border-color);
+        opacity: 0.4;
     }
 }
