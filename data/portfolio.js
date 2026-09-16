@@ -73,7 +73,7 @@ export const bootcamps = [
     {
         role: "Fullstack Developer",
         company: " Hari Senin Bootcamp",
-        logo: "/img/Robotika.jpeg",
+        logo: "/img/harisenin.png",
         date: "March 2026 - Present",
         points: [
             "Built a responsive e-learning platform supporting video streaming, course catalogs, and user authentication using React.js",
