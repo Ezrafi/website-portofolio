@@ -1,102 +1,36 @@
 import express from 'express';
-import { engine } from 'express-handlebars';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { projects, experiences, skills, bootcamps } from './data/portfolio.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-// Konfigurasi Handlebars
-app.engine('hbs', engine({
-    extname: 'hbs',
-    defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views/layouts'),
-    partialsDir: path.join(__dirname, 'views/partials'),
-}));
-
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Sajikan file statis dari folder public
+// Sajikan file statis dari folder public (img)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware untuk menangani favicon agar tidak 404 di log
-// app.get('/favicon.ico', (req, res) => res.status(204).end());
+// API endpoints untuk React client
+app.get('/api/projects', (req, res) => res.json(projects));
+app.get('/api/experiences', (req, res) => res.json(experiences));
+app.get('/api/bootcamps', (req, res) => res.json(bootcamps));
+app.get('/api/skills', (req, res) => res.json(skills));
+app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
 
-app.get('/', (req, res) => {
-    const projects = [
-        {
-            title: "Sistem Monitoring Hidroponik Berbasis Blynk dan ESP32",
-            tech: "Arduino IDE • C++, Blynk",
-            desc: "A System Where you can monitor your hydroponic system using Blynk and ESP32.",
-            link: "https://github.com/Ezrafi",
-            github: "https://github.com/Ezrafi",
-            image: "/img/iot.png"
-        },
-        {
-            title: "Sistem Manajemen Gudang Berbasis Web",
-            tech: "Bootstrap • PHP • MySQL, CodeIgniter, XAMPP",
-            desc: "Management system for warehouse operations using PHP, MySQL, and CodeIgniter.",
-            link: "https://github.com/Ezrafi",
-            github: "https://github.com/Ezrafi/sistem-gudang",
-            image: "/img/project1.png"
-        },
-        {
-            title: "Website Educourse Hariesok.id",
-            tech: "Tailwind • React • MySQL, Javascript, Docker",
-            desc: "Educourse platform for managing online courses using React, Vite, and Tailwind CSS, with Zustand for state management and MySQL-based database design.",
-            link: "https://learnflix-lime.vercel.app/",
-            github: "https://github.com/Ezrafi",
-            image: "/img/project2.png"
-        }
-    ];
+// Sajikan hasil build React (client -> dist)
+const distDir = path.join(__dirname, 'dist');
+if (fs.existsSync(distDir)) {
+    app.use(express.static(distDir));
 
-    const experiences = [
-        {
-            role: "Research and Development assistant",
-            company: "Lab Robotika Gunadarma University",
-            logo: "/img/Robotika.jpeg",
-            date: "Feb 2021 - September 2023",
-            points: [
-                "Mentoring students in Full Stack Development bootcamp",
-                "Teaching Arduino, Robotic, Electrical, and related technologies",
-                "Providing code reviews and technical guidance",
-                "Developing curriculum and learning materials",
-                "Conducting IoT research and projects such as Hydroponic Monitoring System"
-            ],
-            tech: ["Arduino IDE", "C++", "HTML", "CSS", "XAMPP"]
-        },
-        {
-            role: "Virtual Internship Big Data Analyst",
-            company: "Rakamin Academy - Kimia Farma Project",
-            logo: "/img/Rakamin.png",
-            date: "June 2024 - July 2024",
-            points: [
-                "Developed a Year-over-Year Revenue Comparison dashboard to identify revenue trends and patterns.",
-                "Created an interactive Geo Map in Looker Studio to visualize total profit by province, aiding in regional performance analysis.",
-                "Designed a Top 5 Branches with Highest Ratings but Lowest Transaction Ratings report to pinpoint areas for service improvement."
-            ],
-            tech: ["Looker Studio", "BigQuery", "MySQL", "MongoDB"]
-        }
-    ];
-
-    const skills = [
-    { name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", color: "#f7df1e" },
-    { name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", color: "#339933" },
-    { name: "Express.js", logo: "https://skillicons.dev/icons?i=express", color: "#ffffff" },
-    { name: "MongoDB", logo: "https://skillicons.dev/icons?i=mongodb", color: "#47a248" },
-    { name: "React", logo: "https://skillicons.dev/icons?i=react", color: "#61dafb" },
-    { name: "Next.js", logo: "https://skillicons.dev/icons?i=nextjs", color: "#ffffff" },
-    { name: "MySQL", logo: "https://skillicons.dev/icons?i=mysql", color: "#4479a1" },
-    { name: "PostgreSQL", logo: "https://skillicons.dev/icons?i=postgres", color: "#336791" },
-    { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
-    { name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", color: "#7952b3" },
-    { name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
-    { name: "Docker", logo: "https://skillicons.dev/icons?i=docker", color: "#2496ed" },
-];
-
-    res.render('index', { projects, experiences, skills });
-});
+    // Fallback: semua route lain dikembalikan ke index.html
+    app.use((req, res) => {
+        res.sendFile(path.join(distDir, 'index.html'));
+    });
+} else {
+    app.get('/', (req, res) => {
+        res.status(503).send('Client belum di-build. Jalankan "npm run build" terlebih dahulu.');
+    });
+}
 
 // Listener untuk lokal
 if (process.env.NODE_ENV !== 'production') {
