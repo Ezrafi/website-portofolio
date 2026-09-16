@@ -1,0 +1,26 @@
+name: Auto-repoint custom domains
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  repoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel deployment to be ready
+        run: sleep 30
+
+      - name: Get latest deployment and re-point domains
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          DEPLOY_URL=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].url')
+
+          echo "Latest deployment: $DEPLOY_URL"
+
+          npx vercel alias set "https://$DEPLOY_URL" athaezrafi-portfolio.vercel.app --token "$VERCEL_TOKEN" --yes
+          npx vercel alias set "https://$DEPLOY_URL" batch64-portfolio.vercel.app --token "$VERCEL_TOKEN" --yes
+
+          echo "Domains re-pointed successfully"
