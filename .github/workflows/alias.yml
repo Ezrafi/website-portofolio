@@ -9,18 +9,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for Vercel deployment to be ready
-        run: sleep 30
-
-      - name: Get latest deployment and re-point domains
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          DEPLOY_URL=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
-            -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].url')
+          for i in $(seq 1 30); do
+            STATE=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
+              -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].readyState')
+            DEPLOY_URL=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
+              -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].url')
+            echo "Attempt $i: state=$STATE url=$DEPLOY_URL"
+            if [ "$STATE" = "READY" ]; then
+              echo "Deployment ready: $DEPLOY_URL"
+              echo "DEPLOY_URL=$DEPLOY_URL" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Deployment not ready after 5 minutes" >&2
+          exit 1
 
-          echo "Latest deployment: $DEPLOY_URL"
-
-          npx vercel alias set "https://$DEPLOY_URL" athaezrafi-portfolio.vercel.app --token "$VERCEL_TOKEN" --yes
-          npx vercel alias set "https://$DEPLOY_URL" batch64-portfolio.vercel.app --token "$VERCEL_TOKEN" --yes
-
+      - name: Re-point both custom domains
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          DEPLOY_URL: ${{ env.DEPLOY_URL }}
+        run: |
+          echo "Pinning domains to $DEPLOY_URL"
+          npx vercel alias set "https://$DEPLOY_URL" athaezrafi-portfolio.vercel.app --token "$VERCEL_TOKEN" --scope atha-ezrafis-projects --yes
+          npx vercel alias set "https://$DEPLOY_URL" batch64-portfolio.vercel.app --token "$VERCEL_TOKEN" --scope atha-ezrafis-projects --yes
           echo "Domains re-pointed successfully"
