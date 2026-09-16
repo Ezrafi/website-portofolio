@@ -72,7 +72,7 @@ export const skills = [
 export const bootcamps = [
     {
         role: "Fullstack Developer",
-        company: " Hari Senin Bootcamp",
+        company: " HariSenin Bootcamp",
         logo: "/img/harisenin.png",
         date: "March 2026 - Present",
         points: [
@@ -81,6 +81,19 @@ export const bootcamps = [
             "Designed relational database schemas in PostgreSQL to support structured data persistence and efficient querying",
             "Implemented state management using Zustand and component-level rendering optimizations to maintain smooth video playback across device sizes",
             "Collaborated with a development team using Git for version control, delivering the project on schedule with accompanying technical documentation"
+        ],
+        tech: ["JavaScript", "HTML", "CSS", "React.js", "Node.js", "Express.js", "PostgreSQL"]
+    },
+    {
+        role: "Fullstack Developer",
+        company: " Dumbways Bootcamp",
+        logo: "/img/dumbways.png",
+        date: "December 2025 - January 2026",
+        points: [
+            "Successfully completed an intensive Full Stack Web Development bootcamp where I mastered core technologies such as HTML, CSS, JavaScript, Node.js, Express.js, PostgreSQL, Bootstrap, and TailwindCSS. This training provided me strong foundation in both frontend and backend development, as well as best practices in building modern web applications.",
+            "Developed several full-stack applications that integrated RESTful APIs, databases, and responsive UI designs. These projects allowed me to apply theoretical knowledge into practical solutions, resulting in applications that were functional, scalable, and user-friendly.",
+            "Built a portfolio dashboard project featuring CRUD functionalities. The frontend was styled with TailwindCSS to create a clean and dynamic interface, while the backend was powered by Express.js for API logic and PostgreSQL for database management. The application included user authentication (login/register), tech stack management (add, edit, delete), and project/experience listings. This project demonstrated my ability to integrate multiple technologies into a cohesive, real-world solution.",
+            "I actively collaborated in team-based coding exercises, applying Agile methodologies and version control through Git. This experience improved my communication skills, adaptability, and ability to work effectively in collaborative development environments."
         ],
         tech: ["JavaScript", "HTML", "CSS", "React.js", "Node.js", "Express.js", "PostgreSQL"]
     }
