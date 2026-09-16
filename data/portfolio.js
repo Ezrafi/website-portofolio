@@ -82,6 +82,6 @@ export const bootcamps = [
             "Implemented state management using Zustand and component-level rendering optimizations to maintain smooth video playback across device sizes",
             "Collaborated with a development team using Git for version control, delivering the project on schedule with accompanying technical documentation"
         ],
-        tech: ["Arduino IDE", "C++", "HTML", "CSS", "XAMPP"]
+        tech: ["JavaScript", "HTML", "CSS", "React.js", "Node.js", "Express.js", "PostgreSQL"]
     }
 ];
