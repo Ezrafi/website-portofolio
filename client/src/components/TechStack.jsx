@@ -2,17 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import Swiper from 'swiper';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css';
+import { skills as skillsData } from '../../../data/portfolio.js';
 
 export default function TechStack() {
-    const [skills, setSkills] = useState([]);
+    const [skills] = useState(skillsData);
     const containerRef = useRef(null);
-
-    useEffect(() => {
-        fetch('/api/skills')
-            .then((res) => res.json())
-            .then(setSkills)
-            .catch((err) => console.error('Gagal memuat skills:', err));
-    }, []);
 
     useEffect(() => {
         if (!containerRef.current || skills.length === 0) return;

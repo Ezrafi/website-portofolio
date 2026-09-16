@@ -1,30 +1,12 @@
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import TechStack from './components/TechStack.jsx';
 import ExperienceCard from './components/ExperienceCard.jsx';
 import ProjectCard from './components/ProjectCard.jsx';
 import Footer from './components/Footer.jsx';
+import { projects, experiences, bootcamps } from '../../data/portfolio.js';
 
 export default function App() {
-    const [projects, setProjects] = useState([]);
-    const [experiences, setExperiences] = useState([]);
-    const [bootcamps, setBootcamps] = useState([]);
-
-    useEffect(() => {
-        Promise.all([
-            fetch('/api/projects').then((res) => res.json()),
-            fetch('/api/experiences').then((res) => res.json()),
-            fetch('/api/bootcamps').then((res) => res.json()),
-        ])
-            .then(([projectsData, experiencesData, bootcampsData]) => {
-                setProjects(projectsData);
-                setExperiences(experiencesData);
-                setBootcamps(bootcampsData);
-            })
-            .catch((err) => console.error('Gagal memuat data:', err));
-    }, []);
-
     return (
         <>
             <Navbar />
