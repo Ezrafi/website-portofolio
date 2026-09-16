@@ -6,6 +6,8 @@
 @theme {
     /* Warna kustom: krem khas tema terang (palet lain memakai bawaan Tailwind) */
     --color-cream: #f9f6ee;
+    /* Huruf mono untuk label teknis section Tech Stack */
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {
@@ -43,13 +45,4 @@
 
 .lang-desc-enter {
     animation: fade-in-up 0.35s ease;
-}
-
-/* Override Swiper untuk marquee berjalan tanpa henti */
-.tech-swiper .swiper-wrapper {
-    transition-timing-function: linear !important;
-}
-
-.tech-swiper .swiper-slide {
-    width: auto !important;
 }

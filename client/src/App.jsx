@@ -18,7 +18,7 @@ export default function App() {
 
                 <section id="tech-stack" className="py-[60px] px-[5%] md:py-[100px] md:px-[10%] max-w-[1400px] mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
-                        Tech Stack - Tools I Use
+                        Tech Stack &amp; Tooling
                     </h2>
                     <TechStack />
                 </section>

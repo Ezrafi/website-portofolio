@@ -55,18 +55,42 @@ export const experiences = [
 ];
 
 export const skills = [
-    { name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", color: "#f7df1e" },
-    { name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", color: "#339933" },
-    { name: "Express.js", logo: "https://skillicons.dev/icons?i=express", color: "#ffffff" },
-    { name: "MongoDB", logo: "https://skillicons.dev/icons?i=mongodb", color: "#47a248" },
-    { name: "React", logo: "https://skillicons.dev/icons?i=react", color: "#61dafb" },
-    { name: "Next.js", logo: "https://skillicons.dev/icons?i=nextjs", color: "#ffffff" },
-    { name: "MySQL", logo: "https://skillicons.dev/icons?i=mysql", color: "#4479a1" },
-    { name: "PostgreSQL", logo: "https://skillicons.dev/icons?i=postgres", color: "#336791" },
-    { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
-    { name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", color: "#7952b3" },
-    { name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
-    { name: "Docker", logo: "https://skillicons.dev/icons?i=docker", color: "#2496ed" },
+    { category: "Languages", name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", color: "#f7df1e" },
+    { category: "Languages", name: "TypeScript", logo: "https://skillicons.dev/icons?i=ts", color: "#3178c6" },
+    { category: "Languages", name: "HTML", logo: "https://skillicons.dev/icons?i=html", color: "#e34f26" },
+    { category: "Languages", name: "CSS", logo: "https://skillicons.dev/icons?i=css", color: "#663399" },
+    { category: "Languages", name: "PHP", logo: "https://skillicons.dev/icons?i=php", color: "#777bb4" },
+    { category: "Languages", name: "C++", logo: "https://skillicons.dev/icons?i=cpp", color: "#00599c" },
+
+    { category: "Frontend", name: "React", logo: "https://skillicons.dev/icons?i=react", color: "#61dafb" },
+    { category: "Frontend", name: "Next.js", logo: "https://skillicons.dev/icons?i=nextjs", color: "#000000" },
+    { category: "Frontend", name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", color: "#06b6d4" },
+    { category: "Frontend", name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", color: "#7952b3" },
+    { category: "Frontend", name: "Vite", logo: "https://skillicons.dev/icons?i=vite", color: "#646cff" },
+    { category: "Frontend", name: "Redux", logo: "https://skillicons.dev/icons?i=redux", color: "#764abc" },
+
+    { category: "Backend", name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", color: "#339933" },
+    { category: "Backend", name: "Express.js", logo: "https://skillicons.dev/icons?i=express", color: "#94a3b8" },
+
+    { category: "Data", name: "PostgreSQL", logo: "https://skillicons.dev/icons?i=postgres", color: "#336791" },
+    { category: "Data", name: "MySQL", logo: "https://skillicons.dev/icons?i=mysql", color: "#4479a1" },
+    { category: "Data", name: "MongoDB", logo: "https://skillicons.dev/icons?i=mongodb", color: "#47a248" },
+
+    { category: "Workflow & Ops", name: "Docker", logo: "https://skillicons.dev/icons?i=docker", color: "#2496ed" },
+    { category: "Workflow & Ops", name: "Git", logo: "https://skillicons.dev/icons?i=git", color: "#f05032" },
+    { category: "Workflow & Ops", name: "GitHub", logo: "https://skillicons.dev/icons?i=github", color: "#181717" },
+    { category: "Workflow & Ops", name: "Postman", logo: "https://skillicons.dev/icons?i=postman", color: "#ff6c37" },
+    { category: "Workflow & Ops", name: "XAMPP", logo: "https://skillicons.dev/icons?i=xampp", color: "#fb7a24" },
+    { category: "Workflow & Ops", name: "Arduino", logo: "https://skillicons.dev/icons?i=arduino", color: "#00979d" },
+];
+
+export const aiTools = [
+    { name: "ChatGPT", mark: "GP", color: "#10a37f" },
+    { name: "Claude", mark: "CL", color: "#d97757" },
+    { name: "Gemini", mark: "GM", color: "#4285f4" },
+    { name: "Cursor", mark: "CU", color: "#5e6ad2" },
+    { name: "GitHub Copilot", mark: "CP", color: "#8957e5" },
+    { name: "Perplexity", mark: "PX", color: "#20808d" },
 ];
 
 export const bootcamps = [
