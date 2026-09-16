@@ -74,7 +74,7 @@ export const bootcamps = [
         role: "Fullstack Developer",
         company: " Hari Senin Bootcamp",
         logo: "/img/Robotika.jpeg",
-        date: "Feb 2021 - September 2023",
+        date: "March 2026 - Present",
         points: [
             "Built a responsive e-learning platform supporting video streaming, course catalogs, and user authentication using React.js",
             "Developed and integrated RESTful APIs with Node.js and Express.js to handle client-server data exchange across the platform",
