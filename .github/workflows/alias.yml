@@ -13,10 +13,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           for i in $(seq 1 30); do
-            STATE=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
-              -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].readyState')
             DEPLOY_URL=$(curl -s "https://api.vercel.com/v6/deployments?projectId=prj_qji7kba67uziA6ussxom7cFz9zze&target=production&limit=1" \
               -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.deployments[0].url')
+            STATE=$(curl -s "https://api.vercel.com/v6/deployments/$DEPLOY_URL" \
+              -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.readyState')
             echo "Attempt $i: state=$STATE url=$DEPLOY_URL"
             if [ "$STATE" = "READY" ]; then
               echo "Deployment ready: $DEPLOY_URL"
@@ -33,7 +33,15 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           DEPLOY_URL: ${{ env.DEPLOY_URL }}
         run: |
-          echo "Pinning domains to $DEPLOY_URL"
-          npx vercel alias set "https://$DEPLOY_URL" athaezrafi-portfolio.vercel.app --token "$VERCEL_TOKEN" --scope atha-ezrafis-projects --yes
-          npx vercel alias set "https://$DEPLOY_URL" batch64-portfolio.vercel.app --token "$VERCEL_TOKEN" --scope atha-ezrafis-projects --yes
+          DEPLOY_ID=$(curl -s "https://api.vercel.com/v6/deployments/$DEPLOY_URL" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" | jq -r '.id')
+          echo "Deployment ID: $DEPLOY_ID url=$DEPLOY_URL"
+
+          for DOMAIN in athaezrafi-portfolio.vercel.app batch64-portfolio.vercel.app; do
+            RESULT=$(curl -s -X POST "https://api.vercel.com/v2/deployments/$DEPLOY_ID/aliases" \
+              -H "Authorization: Bearer $VERCEL_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "{\"alias\":\"$DOMAIN\"}")
+            echo "$DOMAIN -> $RESULT"
+          done
           echo "Domains re-pointed successfully"
